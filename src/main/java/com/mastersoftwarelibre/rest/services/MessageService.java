@@ -12,7 +12,10 @@ import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
+import javax.ws.rs.core.Response;
+import javax.ws.rs.core.Response.Status;
 
+import com.mastersoftwarelibre.rest.dtos.ExceptionDTO;
 import com.mastersoftwarelibre.rest.dtos.MessageConverter;
 import com.mastersoftwarelibre.rest.dtos.MessageDTO;
 import com.mastersoftwarelibre.rest.dtos.MessageListDTO;
@@ -34,32 +37,50 @@ public class MessageService {
     @GET
     @Produces("application/xml")
     @Path("/{index}")
-    public MessageDTO getMessage(@PathParam("index") int index) {
-        return MessageConverter.toDTO(messages.get(index));
+    public Response getMessage(@PathParam("index") int index) {
+        try {
+            return Response.status(Status.OK).entity(
+                    MessageConverter.toDTO(messages.get(index))).build();
+        } catch (IndexOutOfBoundsException e) {
+            return Response.status(Status.NOT_FOUND)
+                    .entity(new ExceptionDTO(e)).build();
+        }
     }
 
     @POST
     @Consumes("application/xml")
-    public void addMessage(MessageDTO messageDTO) {
+    public Response addMessage(MessageDTO messageDTO) {
         Message entity = MessageConverter.toEntity(messageDTO);
         messages.add(entity);
+        return Response.status(Status.OK).build();
     }
 
     @PUT
     @Consumes("application/xml")
     @Path("/{index}")
-    public void updateMessage(@PathParam("index") int index,
+    public Response updateMessage(@PathParam("index") int index,
             MessageDTO messageDTO) {
-        messages.set(index, MessageConverter.toEntity(messageDTO));
+        try {
+            messages.set(index, MessageConverter.toEntity(messageDTO));
+            return Response.status(Status.OK).build();
+        } catch (IndexOutOfBoundsException e) {
+            return Response.status(Status.NOT_FOUND)
+                    .entity(new ExceptionDTO(e)).build();
+        }
     }
 
     @DELETE
     @Produces("application/xml")
     @Path("/{index}")
-    public MessageDTO removeMessage(@PathParam("index") int index) {
-        MessageDTO messageDTO = MessageConverter.toDTO(messages.get(index));
-        messages.remove(index);
-        return messageDTO;
+    public Response removeMessage(@PathParam("index") int index) {
+        try {
+            MessageDTO messageDTO = MessageConverter.toDTO(messages.get(index));
+            messages.remove(index);
+            return Response.status(Status.OK).entity(messageDTO).build();
+        } catch (IndexOutOfBoundsException e) {
+            return Response.status(Status.NOT_FOUND)
+                    .entity(new ExceptionDTO(e)).build();
+        }
     }
 
 }
