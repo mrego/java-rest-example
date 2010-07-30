@@ -5,6 +5,7 @@ import java.util.Arrays;
 import java.util.List;
 
 import javax.ws.rs.Consumes;
+import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.PUT;
@@ -50,6 +51,15 @@ public class MessageService {
     public void updateMessage(@PathParam("index") int index,
             MessageDTO messageDTO) {
         messages.set(index, MessageConverter.toEntity(messageDTO));
+    }
+
+    @DELETE
+    @Produces("application/xml")
+    @Path("/{index}")
+    public MessageDTO removeMessage(@PathParam("index") int index) {
+        MessageDTO messageDTO = MessageConverter.toDTO(messages.get(index));
+        messages.remove(index);
+        return messageDTO;
     }
 
 }
