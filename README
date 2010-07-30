@@ -1,0 +1,85 @@
+Java REST example
+=================
+
+Description
+-----------
+
+Very basic example about how to develop a REST web application with Jersey [1]_,
+Jetty [2]_ and Maven [3]_.
+
+Jersey is the open source JAX-RS (JSR 311) [4]_ Reference Implementation for
+building RESTful Web services.
+
+With this example you could check how to develop REST web services in a web
+application. Different methods in your application will be called depending on
+the HTTP methods: GET, POST, PUT or DELETE.
+
+This is based in a post by Tim Reardon in his blog:
+http://blog.reardonsoftware.com/2009/03/jersey-jetty-and-maven-helloworld.html
+
+This example has been developed using GNU/Linux and it is not tested in other
+operative systems.
+
+In order to launch the web application you should use the next command from the
+main folder::
+
+  $ mvn jetty-run
+
+Then you could go to the next URL with your browser to check if it works:
+http://localhost:8080/rest-example/rest/helloworld
+
+Moreover, you could use the examples at `scripts` folder to check if it works::
+
+  $ cd scripts/
+  $ get.sh
+  $ post.sh message.xml
+  $ put.sh 1 message.xml
+  $ delete.sh 1
+
+
+Requirements
+------------
+
+* Java 1.6
+* Maven 2
+* cURL and Tidy (for scripts)
+
+Execute the next command to install the required packages in Debian based
+distributions::
+
+  # apt-get install openjdk-6-jdk
+  # apt-get install maven2
+  # apt-get install curl
+  # apt-get install tidy
+
+
+Availability
+------------
+
+The cutting-edge version of this example is always available from the Git
+repository at http://gitorious.org/java-rest-example/java-rest-example/.
+
+Clone the repository with the next command::
+
+  $ git clone git://gitorious.org/java-rest-example/java-rest-example.git
+
+
+License
+-------
+
+*Java REST example* is released under the terms of the GNU Affero General Public
+License version 3 [1]_.
+
+Please read the ``COPYING`` file for details.
+
+
+Authors
+-------
+
+Please see ``AUTHORS`` file for more information about the authors.
+
+
+.. [1] http://jersey.dev.java.net/
+.. [2] http://jetty.codehaus.org/jetty/
+.. [3] http://maven.apache.org/
+.. [4] http://jcp.org/aboutJava/communityprocess/final/jsr311/index.html
