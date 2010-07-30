@@ -7,6 +7,7 @@ import java.util.List;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
+import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
@@ -41,6 +42,14 @@ public class MessageService {
     public void addMessage(MessageDTO messageDTO) {
         Message entity = MessageConverter.toEntity(messageDTO);
         messages.add(entity);
+    }
+
+    @PUT
+    @Consumes("application/xml")
+    @Path("/{index}")
+    public void updateMessage(@PathParam("index") int index,
+            MessageDTO messageDTO) {
+        messages.set(index, MessageConverter.toEntity(messageDTO));
     }
 
 }
