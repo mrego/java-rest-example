@@ -1,4 +1,4 @@
-package com.mastersoftwarelibre.rest;
+package com.mastersoftwarelibre.rest.dtos;
 
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;

@@ -1,4 +1,4 @@
-package com.mastersoftwarelibre.rest;
+package com.mastersoftwarelibre.rest.dtos;
 
 import java.util.List;
 

@@ -6,7 +6,7 @@ import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 
-import com.mastersoftwarelibre.rest.MessageDTO;
+import com.mastersoftwarelibre.rest.dtos.MessageDTO;
 
 @Path("/helloworld")
 public class HelloWorldService {
