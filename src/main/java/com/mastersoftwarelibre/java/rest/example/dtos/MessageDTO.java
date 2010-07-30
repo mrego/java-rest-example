@@ -17,29 +17,22 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-package com.mastersoftwarelibre.rest.services;
+package com.mastersoftwarelibre.java.rest.example.dtos;
 
-import javax.ws.rs.Consumes;
-import javax.ws.rs.GET;
-import javax.ws.rs.POST;
-import javax.ws.rs.Path;
-import javax.ws.rs.Produces;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
 
-import com.mastersoftwarelibre.rest.dtos.MessageDTO;
+@XmlRootElement(name = "message")
+public class MessageDTO {
 
-@Path("/helloworld")
-public class HelloWorldService {
+    @XmlElement
+    public String content;
 
-    @GET
-    @Produces("application/xml")
-    public MessageDTO getMessage() {
-        return new MessageDTO("Hello World");
+    public MessageDTO() {
     }
 
-    @POST
-    @Consumes("application/xml")
-    public void setMessage(MessageDTO messageDTO) {
-        System.out.println("Storing message: " + messageDTO.content);
+    public MessageDTO(String content) {
+        this.content = content;
     }
 
 }

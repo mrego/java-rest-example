@@ -17,36 +17,24 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-package com.mastersoftwarelibre.rest.dtos;
+package com.mastersoftwarelibre.java.rest.example.dtos;
 
-import java.io.PrintWriter;
-import java.io.StringWriter;
+import java.util.List;
 
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 
-@XmlRootElement(name = "message")
-public class ExceptionDTO {
+@XmlRootElement(name = "message-list")
+public class MessageListDTO {
 
-    @XmlElement(name = "class")
-    public String className;
+    @XmlElement(name = "message")
+    public List<MessageDTO> messages;
 
-    @XmlElement
-    public String message;
-
-    @XmlElement(name = "stack-trace")
-    public String stackTrace;
-
-    public ExceptionDTO() {
+    public MessageListDTO() {
     }
 
-    public ExceptionDTO(Exception exception) {
-        this.className = exception.getClass().getName();
-        this.message = exception.getMessage();
-
-        StringWriter stringWriter = new StringWriter();
-        exception.printStackTrace(new PrintWriter(stringWriter));
-        this.stackTrace = stringWriter.toString();
+    public MessageListDTO(List<MessageDTO> messages) {
+        this.messages = messages;
     }
 
 }

@@ -17,29 +17,36 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-package com.mastersoftwarelibre.rest.dtos;
+package com.mastersoftwarelibre.java.rest.example.dtos;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.io.PrintWriter;
+import java.io.StringWriter;
 
-import com.mastersoftwarelibre.rest.entities.Message;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
 
-public class MessageConverter {
+@XmlRootElement(name = "message")
+public class ExceptionDTO {
 
-    public static MessageDTO toDTO(Message message) {
-        return new MessageDTO(message.getContent());
+    @XmlElement(name = "class")
+    public String className;
+
+    @XmlElement
+    public String message;
+
+    @XmlElement(name = "stack-trace")
+    public String stackTrace;
+
+    public ExceptionDTO() {
     }
 
-    public static MessageListDTO toDTO(List<Message> messages) {
-        List<MessageDTO> messageDTOs = new ArrayList<MessageDTO>();
-        for (Message message : messages) {
-            messageDTOs.add(new MessageDTO(message.getContent()));
-        }
-        return new MessageListDTO(messageDTOs);
-    }
+    public ExceptionDTO(Exception exception) {
+        this.className = exception.getClass().getName();
+        this.message = exception.getMessage();
 
-    public static Message toEntity(MessageDTO messageDTO) {
-        return new Message(messageDTO.content);
+        StringWriter stringWriter = new StringWriter();
+        exception.printStackTrace(new PrintWriter(stringWriter));
+        this.stackTrace = stringWriter.toString();
     }
 
 }

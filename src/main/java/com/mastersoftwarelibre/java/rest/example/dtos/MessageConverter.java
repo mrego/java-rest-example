@@ -17,24 +17,29 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-package com.mastersoftwarelibre.rest.dtos;
+package com.mastersoftwarelibre.java.rest.example.dtos;
 
+import java.util.ArrayList;
 import java.util.List;
 
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
+import com.mastersoftwarelibre.java.rest.example.entities.Message;
 
-@XmlRootElement(name = "message-list")
-public class MessageListDTO {
+public class MessageConverter {
 
-    @XmlElement(name = "message")
-    public List<MessageDTO> messages;
-
-    public MessageListDTO() {
+    public static MessageDTO toDTO(Message message) {
+        return new MessageDTO(message.getContent());
     }
 
-    public MessageListDTO(List<MessageDTO> messages) {
-        this.messages = messages;
+    public static MessageListDTO toDTO(List<Message> messages) {
+        List<MessageDTO> messageDTOs = new ArrayList<MessageDTO>();
+        for (Message message : messages) {
+            messageDTOs.add(new MessageDTO(message.getContent()));
+        }
+        return new MessageListDTO(messageDTOs);
+    }
+
+    public static Message toEntity(MessageDTO messageDTO) {
+        return new Message(messageDTO.content);
     }
 
 }

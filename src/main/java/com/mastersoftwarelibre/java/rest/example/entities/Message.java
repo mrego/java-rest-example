@@ -17,7 +17,7 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-package com.mastersoftwarelibre.rest.entities;
+package com.mastersoftwarelibre.java.rest.example.entities;
 
 public class Message {
 

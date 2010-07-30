@@ -17,7 +17,7 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-package com.mastersoftwarelibre.rest.services;
+package com.mastersoftwarelibre.java.rest.example.services;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -34,11 +34,11 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.Response.Status;
 
-import com.mastersoftwarelibre.rest.dtos.ExceptionDTO;
-import com.mastersoftwarelibre.rest.dtos.MessageConverter;
-import com.mastersoftwarelibre.rest.dtos.MessageDTO;
-import com.mastersoftwarelibre.rest.dtos.MessageListDTO;
-import com.mastersoftwarelibre.rest.entities.Message;
+import com.mastersoftwarelibre.java.rest.example.dtos.ExceptionDTO;
+import com.mastersoftwarelibre.java.rest.example.dtos.MessageConverter;
+import com.mastersoftwarelibre.java.rest.example.dtos.MessageDTO;
+import com.mastersoftwarelibre.java.rest.example.dtos.MessageListDTO;
+import com.mastersoftwarelibre.java.rest.example.entities.Message;
 
 @Path("/messages/")
 public class MessageService {
