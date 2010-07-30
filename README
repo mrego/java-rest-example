@@ -26,7 +26,7 @@ main folder::
   $ mvn jetty-run
 
 Then you could go to the next URL with your browser to check if it works:
-http://localhost:8080/rest-example/rest/helloworld
+http://localhost:8080/java-rest-example/rest/helloworld
 
 Moreover, you could use the examples at `scripts` folder to check if it works::
 
@@ -68,7 +68,7 @@ License
 -------
 
 *Java REST example* is released under the terms of the GNU Affero General Public
-License version 3 [1]_.
+License version 3 [5]_.
 
 Please read the ``COPYING`` file for details.
 
@@ -83,3 +83,4 @@ Please see ``AUTHORS`` file for more information about the authors.
 .. [2] http://jetty.codehaus.org/jetty/
 .. [3] http://maven.apache.org/
 .. [4] http://jcp.org/aboutJava/communityprocess/final/jsr311/index.html
+.. [5]  http://www.fsf.org/licensing/licenses/agpl.html

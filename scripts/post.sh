@@ -9,4 +9,4 @@ else
 fi
 
 curl -sv -X POST -d @$file --header "Content-type: application/xml" \
-	http://localhost:8080/rest-example/rest/messages/
+	http://localhost:8080/java-rest-example/rest/messages/
