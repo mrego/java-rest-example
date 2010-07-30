@@ -23,8 +23,13 @@
                 <groupId>org.mortbay.jetty</groupId>
                 <artifactId>maven-jetty-plugin</artifactId>
                 <version>${jetty.version}</version>
+                <configuration>
+                    <reload>manual</reload>
+                    <stopKey>stop</stopKey>
+                    <stopPort>9966</stopPort>
+                </configuration>
             </plugin>
-        
+
         </plugins>
     </build>
     
@@ -46,7 +51,7 @@
     
     <properties>
         <jdkLevel>1.5</jdkLevel>
-        <jetty.version>6.1.10</jetty.version>
+        <jetty.version>6.1.18</jetty.version>
         <jersey.version>1.0.2</jersey.version>
     </properties>
 
