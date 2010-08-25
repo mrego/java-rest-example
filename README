@@ -23,7 +23,7 @@ operative systems.
 In order to launch the web application you should use the next command from the
 main folder::
 
-  $ mvn jetty-run
+  $ mvn jetty:run
 
 Then you could go to the next URL with your browser to check if it works:
 http://localhost:8080/java-rest-example/rest/helloworld
