@@ -34,6 +34,9 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.Response.Status;
 
+import org.springframework.context.annotation.Scope;
+import org.springframework.stereotype.Component;
+
 import com.mastersoftwarelibre.java.rest.example.dtos.ExceptionDTO;
 import com.mastersoftwarelibre.java.rest.example.dtos.MessageConverter;
 import com.mastersoftwarelibre.java.rest.example.dtos.MessageDTO;
@@ -41,6 +44,8 @@ import com.mastersoftwarelibre.java.rest.example.dtos.MessageListDTO;
 import com.mastersoftwarelibre.java.rest.example.entities.Message;
 
 @Path("/messages/")
+@Component
+@Scope("request")
 public class MessageService {
 
     private static List<Message> messages = new ArrayList<Message>(

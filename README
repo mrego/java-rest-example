@@ -5,9 +5,9 @@ Description
 -----------
 
 Very basic example about how to develop a REST web application with Jersey [1]_,
-Jetty [2]_ and Maven [3]_.
+Jetty [2]_, Maven [3]_ and Spring [4]_.
 
-Jersey is the open source JAX-RS (JSR 311) [4]_ Reference Implementation for
+Jersey is the open source JAX-RS (JSR 311) [5]_ Reference Implementation for
 building RESTful Web services.
 
 With this example you could check how to develop REST web services in a web
@@ -68,7 +68,7 @@ License
 -------
 
 *Java REST example* is released under the terms of the GNU Affero General Public
-License version 3 [5]_.
+License version 3 [6]_.
 
 Please read the ``COPYING`` file for details.
 
@@ -82,5 +82,6 @@ Please see ``AUTHORS`` file for more information about the authors.
 .. [1] http://jersey.dev.java.net/
 .. [2] http://jetty.codehaus.org/jetty/
 .. [3] http://maven.apache.org/
-.. [4] http://jcp.org/aboutJava/communityprocess/final/jsr311/index.html
-.. [5]  http://www.fsf.org/licensing/licenses/agpl.html
+.. [4] http://www.springsource.org/
+.. [5] http://jcp.org/aboutJava/communityprocess/final/jsr311/index.html
+.. [6]  http://www.fsf.org/licensing/licenses/agpl.html

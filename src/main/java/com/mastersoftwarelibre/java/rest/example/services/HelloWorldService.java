@@ -25,9 +25,14 @@ import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 
+import org.springframework.context.annotation.Scope;
+import org.springframework.stereotype.Component;
+
 import com.mastersoftwarelibre.java.rest.example.dtos.MessageDTO;
 
 @Path("/helloworld")
+@Component
+@Scope("request")
 public class HelloWorldService {
 
     @GET
