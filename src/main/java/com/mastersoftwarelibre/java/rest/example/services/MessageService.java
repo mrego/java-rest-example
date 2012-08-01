@@ -1,7 +1,7 @@
 /*
  * This file is part of Java REST example
  *
- * Copyright (C) 2010 Manuel Rego Casasnovas <mrego@igalia.com>
+ * Copyright (C) 2010-2012 Manuel Rego Casasnovas <mrego@igalia.com>
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as published by
@@ -56,6 +56,13 @@ public class MessageService {
     @Produces("application/xml")
     public MessageListDTO getMessages() {
         return MessageConverter.toDTO(messages);
+    }
+
+    @GET
+    @Produces("application/json")
+    @Path("/json")
+    public MessageListDTO getMessagesJSON() {
+        return getMessages();
     }
 
     @GET
